@@ -62,7 +62,7 @@ const Navbar = () => {
               <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out">
                 <div className="min-w-[320px]">
                   {/* Card 1: Docs */}
-                  <a href="#docs" className="group/card flex items-center p-4 bg-deep rounded-lg hover:bg-accent/10 transition-all duration-300 mb-2 shadow-lg transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100" style={{ transitionDelay: '0ms' }}>
+                  <a href="/docs" className="group/card flex items-center p-4 bg-deep rounded-lg hover:bg-accent/10 transition-all duration-300 mb-2 shadow-lg transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100" style={{ transitionDelay: '0ms' }}>
                     <div className="flex-1">
                       <div className="flex items-center mb-2">
                         <svg className="w-5 h-5 text-accent mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -216,7 +216,7 @@ const Navbar = () => {
                   </svg>
                 </button>
                 <div className={`ml-4 space-y-2 transition-all duration-300 ${isResourcesOpen ? 'max-h-32 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
-                  <a href="#docs" className="block text-deep/80 hover:text-accent transition-colors duration-200 py-1" onClick={() => setIsMobileMenuOpen(false)}>
+                  <a href="/docs" className="block text-deep/80 hover:text-accent transition-colors duration-200 py-1" onClick={() => setIsMobileMenuOpen(false)}>
                     Docs
                   </a>
                   <a href="#blog" className="block text-deep/80 hover:text-accent transition-colors duration-200 py-1" onClick={() => setIsMobileMenuOpen(false)}>
