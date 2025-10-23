@@ -470,15 +470,15 @@ export default function DocsPage() {
                   Join thousands of users already earning rewards and learning about Web3
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <a 
-                    href="https://acumhq.xyz" 
+                  <button 
+                    onClick={() => window.open('https://app.acumhq.xyz', '_blank')}
                     className="inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-semibold rounded-full hover:from-purple-600 hover:to-purple-700 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-purple-500/25"
                   >
                     Launch App
                     <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
-                  </a>
+                  </button>
                   <a 
                     href="#" 
                     className="inline-flex items-center justify-center px-8 py-3 border border-purple-500/50 text-purple-400 font-semibold rounded-full hover:bg-purple-500/10 transition-all duration-300 hover:scale-105"

@@ -159,7 +159,10 @@ const Navbar = () => {
 
           {/* Launch App Button - Desktop Only */}
           <div className="hidden md:flex items-center">
-            <button className="bg-accent hover:brightness-110 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+            <button 
+              onClick={() => window.open('https://predictions.acumhq.xyz', '_blank')}
+              className="bg-accent hover:brightness-110 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+            >
               Launch App
             </button>
           </div>
@@ -257,7 +260,10 @@ const Navbar = () => {
               {/* Mobile Launch App Button */}
               <button 
                 className="bg-accent hover:brightness-110 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg mt-4 w-full"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  window.open('https://predictions.acumhq.xyz', '_blank');
+                }}
               >
                 Launch App
               </button>
