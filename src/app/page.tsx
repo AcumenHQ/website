@@ -30,7 +30,10 @@ export default function Home() {
             <div className="pb-8">
               <div className="max-w-2xl mx-auto sm:mx-0">
                 <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-3 sm:gap-4">
-                  <button className="bg-white text-deep px-5 py-3 sm:px-6 sm:py-3 rounded-lg font-semibold text-base sm:text-lg cursor-pointer">
+                  <button 
+                    onClick={() => window.open('https://predictions.acumhq.xyz', '_blank')}
+                    className="bg-white text-deep px-5 py-3 sm:px-6 sm:py-3 rounded-lg font-semibold text-base sm:text-lg cursor-pointer"
+                  >
                     Start Predicting
                   </button>
                   <button className="border-2 border-white text-white px-5 py-3 sm:px-6 sm:py-3 rounded-lg font-semibold text-base sm:text-lg cursor-pointer">
@@ -62,7 +65,10 @@ export default function Home() {
             Hold $ACUM tokens and unlock exclusive prediction opportunities and Web3 education.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="border-2 border-accent text-accent px-6 py-3 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 cursor-pointer">
+            <button 
+              onClick={() => window.open('https://predictions.acumhq.xyz', '_blank')}
+              className="border-2 border-accent text-accent px-6 py-3 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 cursor-pointer"
+            >
               Get Started Now
             </button>
             <button className="border-2 border-accent text-accent px-6 py-3 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 cursor-pointer">
