@@ -122,7 +122,7 @@ const Navbar = () => {
               <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out">
                 <div className="min-w-[320px]">
                   {/* Card 1: X (Twitter) */}
-                  <a href="#twitter" className="group/card flex items-center p-4 bg-deep rounded-lg hover:bg-accent/10 transition-all duration-300 mb-2 shadow-lg transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100" style={{ transitionDelay: '0ms' }}>
+                  <a href="https://x.com/acumenhq" target="_blank" rel="noopener noreferrer" className="group/card flex items-center p-4 bg-deep rounded-lg hover:bg-accent/10 transition-all duration-300 mb-2 shadow-lg transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100" style={{ transitionDelay: '0ms' }}>
                     <div className="flex-1">
                       <div className="flex items-center mb-2">
                         <svg className="w-5 h-5 text-accent mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -137,21 +137,6 @@ const Navbar = () => {
                     </svg>
                   </a>
 
-                  {/* Card 2: Telegram */}
-                  <a href="#telegram" className="group/card flex items-center p-4 bg-deep rounded-lg hover:bg-accent/10 transition-all duration-300 shadow-lg transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100" style={{ transitionDelay: '50ms' }}>
-                    <div className="flex-1">
-                      <div className="flex items-center mb-2">
-                        <svg className="w-5 h-5 text-accent mr-2" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-                        </svg>
-                        <span className="font-semibold text-white">Telegram</span>
-                      </div>
-                      <p className="text-gray-300 text-sm">Join our community chat for real-time discussions, support, and alpha insights</p>
-                    </div>
-                    <svg className="w-4 h-4 text-accent ml-2 transform group-hover/card:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </a>
                 </div>
               </div>
             </div>
@@ -248,11 +233,8 @@ const Navbar = () => {
                   </svg>
                 </button>
                 <div className={`ml-4 space-y-2 transition-all duration-300 ${isCommunityOpen ? 'max-h-32 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
-                  <a href="#twitter" className="block text-deep/80 hover:text-accent transition-colors duration-200 py-1" onClick={() => setIsMobileMenuOpen(false)}>
+                  <a href="https://x.com/acumenhq" target="_blank" rel="noopener noreferrer" className="block text-deep/80 hover:text-accent transition-colors duration-200 py-1" onClick={() => setIsMobileMenuOpen(false)}>
                     X (Twitter)
-                  </a>
-                  <a href="#telegram" className="block text-deep/80 hover:text-accent transition-colors duration-200 py-1" onClick={() => setIsMobileMenuOpen(false)}>
-                    Telegram
                   </a>
                 </div>
               </div>

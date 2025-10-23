@@ -125,10 +125,7 @@ export default function Home() {
             <div>
               <h3 className="text-lg font-semibold mb-4">Community</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Discord</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Twitter</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Telegram</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Medium</a></li>
+                <li><a href="https://x.com/acumenhq" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">X</a></li>
               </ul>
             </div>
           </div>
