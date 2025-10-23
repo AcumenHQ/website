@@ -105,7 +105,7 @@ export default function Home() {
             <div>
               <h3 className="text-lg font-semibold mb-4">Platform</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Prediction Marketplace</a></li>
+                <li><a href="https://predictions.acumhq.xyz" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Prediction Marketplace</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Education Center</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Leaderboard</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Alpha Sessions</a></li>
@@ -115,7 +115,7 @@ export default function Home() {
             <div>
               <h3 className="text-lg font-semibold mb-4">Resources</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
+                <li><a href="https://acumhq.xyz/docs" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Documentation</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Whitepaper</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Tokenomics</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Roadmap</a></li>

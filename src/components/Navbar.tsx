@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -45,12 +46,12 @@ const Navbar = () => {
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="#prediction" className="text-deep hover:text-accent transition-colors duration-200 font-medium">
+            <a href="https://predictions.acumhq.xyz" target="_blank" rel="noopener noreferrer" className="text-deep hover:text-accent transition-colors duration-200 font-medium">
               Prediction
-            </Link>
-            <Link href="#education" className="text-deep hover:text-accent transition-colors duration-200 font-medium">
+            </a>
+            <a href="https://acumhq.xyz/docs" target="_blank" rel="noopener noreferrer" className="text-deep hover:text-accent transition-colors duration-200 font-medium">
               Tokenomics
-            </Link>
+            </a>
             
             {/* Resources Dropdown */}
             <div className="relative group">
@@ -172,20 +173,24 @@ const Navbar = () => {
           <div className="px-4 py-4 bg-white border-t border-gray-200">
             <div className="flex flex-col space-y-4">
               {/* Mobile Navigation Links */}
-              <Link 
-                href="#prediction" 
+              <a 
+                href="https://predictions.acumhq.xyz" 
+                target="_blank" 
+                rel="noopener noreferrer"
                 className="text-deep hover:text-accent transition-colors duration-200 font-medium py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Prediction
-              </Link>
-              <Link 
-                href="#education" 
+              </a>
+              <a 
+                href="https://acumhq.xyz/docs" 
+                target="_blank" 
+                rel="noopener noreferrer"
                 className="text-deep hover:text-accent transition-colors duration-200 font-medium py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Tokenomics
-              </Link>
+              </a>
               
               {/* Mobile Resources Dropdown */}
               <div className="py-2">
