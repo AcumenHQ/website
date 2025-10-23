@@ -21,6 +21,7 @@ interface Prediction {
 export default function PredictionsPage() {
   const [ready, setReady] = useState(false);
   const [activeCategory, setActiveCategory] = useState('sports');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [selectedPrediction, setSelectedPrediction] = useState<Prediction | null>(null);
   const [showTokenModal, setShowTokenModal] = useState(false);
 

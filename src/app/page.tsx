@@ -1,3 +1,5 @@
+'use client';
+
 import Navbar from '@/components/Navbar';
 import HeroParticles from '@/components/hero/HeroParticles';
 import PredictionReimagined from '@/components/sections/PredictionReimagined';
