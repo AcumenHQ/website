@@ -161,7 +161,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center">
             <button 
               onClick={() => window.open('https://predictions.acumhq.xyz', '_blank')}
-              className="bg-accent hover:brightness-110 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+              className="bg-accent hover:brightness-110 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg cursor-pointer"
             >
               Launch App
             </button>
@@ -259,7 +259,7 @@ const Navbar = () => {
 
               {/* Mobile Launch App Button */}
               <button 
-                className="bg-accent hover:brightness-110 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg mt-4 w-full"
+                className="bg-accent hover:brightness-110 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg mt-4 w-full cursor-pointer"
                 onClick={() => {
                   setIsMobileMenuOpen(false);
                   window.open('https://predictions.acumhq.xyz', '_blank');
