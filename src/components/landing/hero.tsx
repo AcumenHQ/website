@@ -26,14 +26,10 @@ export function Hero() {
           protocols.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 pt-4">
+        <div className="pt-4">
           <button className="h-12 px-8 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-sm transition-all shadow-[0_0_20px_rgba(79,70,229,0.3)] hover:shadow-[0_0_30px_rgba(79,70,229,0.5)] flex items-center justify-center gap-2">
             Explore Courses
             <iconify-icon icon="lucide:chevron-right" />
-          </button>
-          <button className="h-12 px-8 rounded-lg border border-neutral-800 hover:border-neutral-600 hover:bg-neutral-900 text-neutral-300 font-medium text-sm transition-all flex items-center justify-center gap-2">
-            <iconify-icon icon="lucide:play-circle" width="18" />
-            Watch Trailer
           </button>
         </div>
 

@@ -5,6 +5,20 @@
 :root {
   --background: #050505;
   --foreground: #d4d4d4;
+
+  /* Dashboard Theme Variables (Light/Minimal) */
+  --bg-page: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-surface-highlight: #f4f4f5; /* Zinc 100 */
+  --border-color: #e4e4e7; /* Zinc 200 */
+  --text-main: #09090b; /* Zinc 950 */
+  --text-muted: #71717a; /* Zinc 500 */
+  --text-inv: #ffffff;
+
+  /* Default Dynamic Accents (Obsidian) */
+  --primary: #18181b;
+  --primary-light: #f4f4f5;
+  --primary-glow: rgba(0, 0, 0, 0.15);
 }
 
 @layer base {
@@ -17,8 +31,8 @@
   }
 
   body {
-    background-color: #050505;
-    color: #d4d4d4;
+    background-color: var(--bg-page, #050505);
+    color: var(--text-main, #d4d4d4);
     -webkit-font-smoothing: antialiased;
   }
 
@@ -28,17 +42,17 @@
 
   /* Custom Scrollbar */
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 4px;
   }
   ::-webkit-scrollbar-track {
-    background: #0a0a0a;
+    background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: #333;
-    border-radius: 3px;
+    background: var(--border-color, #e4e4e7);
+    border-radius: 2px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #444;
+    background: #d4d4d8;
   }
 }
 
@@ -77,6 +91,54 @@
 
   .text-glow {
     text-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+  }
+
+  /* Dashboard Components */
+  .glass-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .glass-card:hover {
+    border-color: #d4d4d8;
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .sidebar-link {
+    color: var(--text-muted);
+    transition: all 0.2s;
+  }
+
+  .sidebar-link:hover {
+    color: var(--text-main);
+    background-color: var(--bg-surface-highlight);
+  }
+
+  .sidebar-link.active {
+    color: var(--primary);
+    background-color: var(--primary-light);
+    font-weight: 600;
+  }
+
+  .progress-track {
+    background-color: var(--bg-surface-highlight);
+  }
+
+  .progress-fill {
+    background-color: var(--primary);
+  }
+
+  .btn-primary {
+    background-color: var(--primary);
+    color: var(--text-inv);
+    box-shadow: 0 4px 12px var(--primary-glow);
+    transition: all 0.2s;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
   }
 }
 

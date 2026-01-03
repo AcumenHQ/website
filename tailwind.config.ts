@@ -23,6 +23,19 @@ const config: Config = {
           800: "#171717",
           700: "#262626",
         },
+        // Dashboard theme colors (using CSS variables)
+        page: "var(--bg-page)",
+        surface: "var(--bg-surface)",
+        "surface-highlight": "var(--bg-surface-highlight)",
+        border: "var(--border-color)",
+        primary: "var(--primary)",
+        "primary-light": "var(--primary-light)",
+        "primary-glow": "var(--primary-glow)",
+        txt: {
+          main: "var(--text-main)",
+          muted: "var(--text-muted)",
+          inv: "var(--text-inv)",
+        },
       },
       animation: {
         marquee: "marquee 40s linear infinite",
