@@ -15,18 +15,21 @@ const completedJobs = [
 
 export function CompletedJobs() {
   return (
-    <div className="glass-card rounded-xl overflow-hidden">
-      <div className="p-5 border-b border-border bg-gray-50/50">
+    <div className="glass-card rounded-xl overflow-hidden bg-white">
+      <div className="p-5 border-b border-border bg-surface-highlight/50">
         <h3 className="font-semibold text-txt-main text-sm">Completed Jobs</h3>
       </div>
       <div className="divide-y divide-border">
         {completedJobs.map((job, index) => (
           <div
             key={index}
-            className="p-4 flex justify-between items-center hover:bg-gray-50 transition-colors"
+            className="p-4 flex justify-between items-center hover:bg-surface-highlight/50 transition-colors"
           >
             <div className="flex items-center gap-3">
-              <div className="w-2 h-2 rounded-full bg-emerald-500" />
+              <div
+                className="w-2 h-2 rounded-full shrink-0"
+                style={{ backgroundColor: "var(--primary)" }}
+              />
               <div>
                 <h4 className="text-sm font-medium text-txt-main">{job.title}</h4>
                 <p className="text-[10px] text-txt-muted">{job.date}</p>
@@ -40,7 +43,7 @@ export function CompletedJobs() {
           </div>
         ))}
       </div>
-      <div className="p-3 bg-gray-50 border-t border-border">
+      <div className="p-3 bg-surface-highlight/30 border-t border-border">
         <a
           href="#"
           className="text-xs text-center block text-txt-muted hover:text-primary transition-colors"

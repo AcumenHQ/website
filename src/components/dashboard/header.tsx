@@ -4,7 +4,7 @@ import { ThemeSwitcher } from "./theme-switcher";
 
 export function DashboardHeader() {
   return (
-    <header className="h-16 border-b border-border flex items-center justify-between px-6 sticky top-0 bg-white/90 backdrop-blur-sm z-40">
+    <header className="h-16 shrink-0 border-b border-border flex items-center justify-between px-6 sticky top-0 bg-white backdrop-blur-sm z-30">
       <div className="flex items-center gap-4">
         <button className="md:hidden text-txt-muted hover:text-txt-main">
           <iconify-icon icon="lucide:menu" width="24" />

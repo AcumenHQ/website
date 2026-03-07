@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Providers } from "@/components/providers";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -39,14 +41,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
-        <script
-          src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"
-          async
-        />
-      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans`}>
-        {children}
+        <Providers>
+          {children}
+        </Providers>
+        <Script
+          src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

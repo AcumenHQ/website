@@ -11,7 +11,7 @@ export default function TalentDashboardPage() {
   return (
     <DashboardLayout>
       <DashboardHeader />
-      <div className="p-6 max-w-7xl mx-auto space-y-8">
+      <div className="flex-1 p-6 max-w-7xl mx-auto w-full space-y-8">
         {/* Welcome Section */}
         <div className="flex flex-col md:flex-row justify-between items-end gap-4 pb-2 border-b border-border/50">
           <div>
@@ -39,7 +39,7 @@ export default function TalentDashboardPage() {
         {/* Stats Grid */}
         <StatsGrid />
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           {/* Main Column */}
           <div className="lg:col-span-2 space-y-8">
             <CurrentCourse />
@@ -47,8 +47,8 @@ export default function TalentDashboardPage() {
             <ContractRoadmap />
           </div>
 
-          {/* Right Column */}
-          <div className="lg:col-span-1 space-y-8">
+          {/* Right Column - top-aligned, no stretch */}
+          <div className="lg:col-span-1 space-y-8 flex flex-col">
             <Certifications />
             <CompletedJobs />
           </div>

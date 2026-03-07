@@ -2,8 +2,8 @@
 
 export function CurrentCourse() {
   return (
-    <div className="glass-card rounded-xl overflow-hidden">
-      <div className="p-5 border-b border-border flex justify-between items-center bg-gray-50/50">
+    <div className="glass-card rounded-xl overflow-hidden bg-white">
+      <div className="p-5 border-b border-border flex justify-between items-center bg-surface-highlight/50">
         <h3 className="font-semibold text-txt-main text-sm">Current Course</h3>
         <button className="text-xs text-txt-muted hover:text-primary transition-colors font-medium">
           View All

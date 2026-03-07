@@ -4,7 +4,7 @@ export function StatsGrid() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {/* Stat 1: Reputation Score */}
-      <div className="glass-card p-5 rounded-xl group hover:scale-[1.01] transition-transform duration-200">
+      <div className="glass-card bg-white p-5 rounded-xl group hover:scale-[1.01] transition-transform duration-200">
         <div className="flex justify-between items-start mb-4">
           <div className="p-2 rounded-md bg-surface-highlight text-txt-muted group-hover:text-primary transition-colors">
             <iconify-icon icon="lucide:shield-check" width="20" />
@@ -20,7 +20,7 @@ export function StatsGrid() {
       </div>
 
       {/* Stat 2: Total Earnings */}
-      <div className="glass-card p-5 rounded-xl group hover:scale-[1.01] transition-transform duration-200">
+      <div className="glass-card bg-white p-5 rounded-xl group hover:scale-[1.01] transition-transform duration-200">
         <div className="flex justify-between items-start mb-4">
           <div className="p-2 rounded-md bg-surface-highlight text-txt-muted group-hover:text-primary transition-colors">
             <iconify-icon icon="lucide:coins" width="20" />
@@ -33,7 +33,7 @@ export function StatsGrid() {
       </div>
 
       {/* Stat 3: Skills Mastered */}
-      <div className="glass-card p-5 rounded-xl group hover:scale-[1.01] transition-transform duration-200">
+      <div className="glass-card bg-white p-5 rounded-xl group hover:scale-[1.01] transition-transform duration-200">
         <div className="flex justify-between items-start mb-4">
           <div className="p-2 rounded-md bg-surface-highlight text-txt-muted group-hover:text-primary transition-colors">
             <iconify-icon icon="lucide:graduation-cap" width="20" />
@@ -53,7 +53,7 @@ export function StatsGrid() {
       </div>
 
       {/* Stat 4: Active Job */}
-      <div className="glass-card p-5 rounded-xl group hover:scale-[1.01] transition-transform duration-200 border-l-4 border-l-primary transition-colors">
+      <div className="glass-card bg-white p-5 rounded-xl group hover:scale-[1.01] transition-transform duration-200 border-l-4 border-l-primary transition-colors">
         <div className="flex justify-between items-start mb-4">
           <div className="p-2 rounded-md bg-primary-light text-primary transition-colors">
             <iconify-icon icon="lucide:briefcase" width="20" />

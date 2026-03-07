@@ -38,19 +38,22 @@ export function Header() {
 
         {/* Actions */}
         <div className="flex items-center gap-4">
-          <a
-            href="#"
+          <Link
+            href="/signup"
             className="hidden md:block text-xs font-medium text-neutral-400 hover:text-white transition-colors"
           >
             Sign In
-          </a>
-          <button className="bg-white text-black hover:bg-neutral-200 transition-all px-4 py-2 rounded-lg text-xs font-semibold tracking-wide flex items-center gap-2 group">
+          </Link>
+          <Link
+            href="/signup"
+            className="bg-white text-black hover:bg-neutral-200 transition-all px-4 py-2 rounded-lg text-xs font-semibold tracking-wide flex items-center gap-2 group"
+          >
             Start Learning
             <iconify-icon
               icon="lucide:arrow-right"
               className="group-hover:translate-x-0.5 transition-transform"
             />
-          </button>
+          </Link>
         </div>
       </div>
     </header>

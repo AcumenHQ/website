@@ -6,19 +6,30 @@
   --background: #050505;
   --foreground: #d4d4d4;
 
-  /* Dashboard Theme Variables (Light/Minimal) */
-  --bg-page: #ffffff;
-  --bg-surface: #ffffff;
-  --bg-surface-highlight: #f4f4f5; /* Zinc 100 */
-  --border-color: #e4e4e7; /* Zinc 200 */
-  --text-main: #09090b; /* Zinc 950 */
-  --text-muted: #71717a; /* Zinc 500 */
+  /* Landing: dark page. Dashboard layout can override via .dashboard-root */
+  --bg-page: #050505;
+  --bg-surface: #171717;
+  --bg-surface-highlight: #262626;
+  --border-color: #27272a;
+  --text-main: #fafafa;
+  --text-muted: #a1a1aa;
   --text-inv: #ffffff;
 
   /* Default Dynamic Accents (Obsidian) */
   --primary: #18181b;
   --primary-light: #f4f4f5;
   --primary-glow: rgba(0, 0, 0, 0.15);
+}
+
+/* Dashboard pages use light theme */
+.dashboard-root {
+  --bg-page: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-surface-highlight: #f4f4f5;
+  --border-color: #e4e4e7;
+  --text-main: #09090b;
+  --text-muted: #71717a;
+  --text-inv: #ffffff;
 }
 
 @layer base {
@@ -31,9 +42,10 @@
   }
 
   body {
-    background-color: var(--bg-page, #050505);
-    color: var(--text-main, #d4d4d4);
+    background-color: var(--bg-page);
+    color: var(--text-main);
     -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
   }
 
   ::selection {

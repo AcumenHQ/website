@@ -23,8 +23,8 @@ const certifications = [
 
 export function Certifications() {
   return (
-    <div className="glass-card rounded-xl overflow-hidden flex flex-col h-full">
-      <div className="p-5 border-b border-border bg-gray-50/50">
+    <div className="glass-card rounded-xl overflow-hidden bg-white">
+      <div className="p-5 border-b border-border bg-surface-highlight/50">
         <h3 className="font-semibold text-txt-main text-sm">Certifications</h3>
       </div>
       <div className="flex-1 p-2">

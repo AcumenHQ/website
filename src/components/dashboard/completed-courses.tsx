@@ -45,8 +45,8 @@ export function CompletedCourses() {
   const [expandedId, setExpandedId] = useState<number | null>(null);
 
   return (
-    <div className="glass-card rounded-xl overflow-hidden">
-      <div className="p-5 border-b border-border flex justify-between items-center bg-gray-50/50">
+    <div className="glass-card rounded-xl overflow-hidden bg-white">
+      <div className="p-5 border-b border-border flex justify-between items-center bg-surface-highlight/50">
         <h3 className="font-semibold text-txt-main text-sm">Completed Courses</h3>
       </div>
       <div className="p-6 space-y-2">

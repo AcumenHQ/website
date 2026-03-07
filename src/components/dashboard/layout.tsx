@@ -9,9 +9,11 @@ interface DashboardLayoutProps {
 
 export function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
-    <div className="min-h-screen flex font-sans antialiased selection:bg-primary-light selection:text-primary">
+    <div className="dashboard-root min-h-screen font-sans antialiased selection:bg-primary-light selection:text-primary bg-surface overflow-x-hidden">
       <Sidebar />
-      <main className="flex-1 min-w-0 relative bg-white">{children}</main>
+      <main className="ml-0 w-full md:ml-64 md:w-[calc(100%-16rem)] min-h-screen flex flex-col flex-1">
+        {children}
+      </main>
     </div>
   );
 }
