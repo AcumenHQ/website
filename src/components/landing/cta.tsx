@@ -4,8 +4,11 @@ import { useState } from "react";
 
 export function CTA() {
   const [email, setEmail] = useState("");
+  const [evmAddress, setEvmAddress] = useState("");
+  const [discord, setDiscord] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
+  const [showDiscordInvite, setShowDiscordInvite] = useState(false);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -16,7 +19,11 @@ export function CTA() {
       const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email.trim() }),
+        body: JSON.stringify({
+          email: email.trim(),
+          evmAddress: evmAddress.trim() || undefined,
+          discord: discord.trim() || undefined,
+        }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
@@ -26,6 +33,9 @@ export function CTA() {
       }
       setStatus("success");
       setEmail("");
+      setEvmAddress("");
+      setDiscord("");
+      setShowDiscordInvite(true);
     } catch {
       setStatus("error");
       setMessage("Something went wrong. Please try again.");
@@ -53,24 +63,44 @@ export function CTA() {
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+              className="flex flex-col gap-3 max-w-md mx-auto text-left"
             >
-              <input
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                disabled={status === "loading"}
-                required
-                className="flex-1 bg-neutral-900/50 border border-neutral-700 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-indigo-500 transition-colors disabled:opacity-60"
-              />
-              <button
-                type="submit"
-                disabled={status === "loading"}
-                className="bg-white text-black font-bold px-6 py-3 rounded-lg hover:bg-neutral-200 transition-colors whitespace-nowrap disabled:opacity-60 disabled:cursor-not-allowed"
-              >
-                {status === "loading" ? "Joining…" : "Join Waitlist"}
-              </button>
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <input
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  disabled={status === "loading"}
+                  required
+                  className="flex-1 bg-neutral-900/50 border border-neutral-700 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-indigo-500 transition-colors disabled:opacity-60"
+                />
+                <input
+                  type="text"
+                  placeholder="EVM address (0x…)"
+                  value={evmAddress}
+                  onChange={(e) => setEvmAddress(e.target.value)}
+                  disabled={status === "loading"}
+                  className="flex-1 bg-neutral-900/50 border border-neutral-700 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-indigo-500 transition-colors disabled:opacity-60"
+                />
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <input
+                  type="text"
+                  placeholder="Discord handle"
+                  value={discord}
+                  onChange={(e) => setDiscord(e.target.value)}
+                  disabled={status === "loading"}
+                  className="flex-1 bg-neutral-900/50 border border-neutral-700 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-indigo-500 transition-colors disabled:opacity-60"
+                />
+                <button
+                  type="submit"
+                  disabled={status === "loading"}
+                  className="bg-white text-black font-bold px-6 py-3 rounded-lg hover:bg-neutral-200 transition-colors whitespace-nowrap disabled:opacity-60 disabled:cursor-not-allowed sm:self-stretch"
+                >
+                  {status === "loading" ? "Joining…" : "Join Waitlist"}
+                </button>
+              </div>
             </form>
           )}
 
@@ -85,6 +115,37 @@ export function CTA() {
         </div>
 
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/10 blur-[100px] pointer-events-none" />
+
+        {showDiscordInvite && (
+          <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/70">
+            <div className="bg-neutral-900 border border-neutral-700 rounded-2xl px-6 py-5 max-w-sm w-full text-left shadow-2xl">
+              <h3 className="text-xl font-semibold text-white mb-2">
+                Join the Acumen Discord
+              </h3>
+              <p className="text-sm text-neutral-400 mb-4">
+                You&apos;re on the waitlist. Come hang out with the community while we get things ready.
+              </p>
+              <div className="flex items-center justify-between gap-3">
+                <button
+                  type="button"
+                  onClick={() => setShowDiscordInvite(false)}
+                  className="px-4 py-2 rounded-lg border border-neutral-700 text-sm text-neutral-300 hover:bg-neutral-800 transition-colors"
+                >
+                  Maybe later
+                </button>
+                <a
+                  href="https://discord.gg/n5z8XXeM4"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-[#5865F2] text-sm font-medium text-white hover:bg-[#4752c4] transition-colors"
+                  onClick={() => setShowDiscordInvite(false)}
+                >
+                  Join Discord
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

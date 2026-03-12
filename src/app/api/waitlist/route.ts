@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { getRedisClient } from "@/lib/redis";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -39,6 +40,10 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     const email = typeof body?.email === "string" ? body.email.trim() : "";
+    const evmAddress =
+      typeof body?.evmAddress === "string" ? body.evmAddress.trim() : "";
+    const discord =
+      typeof body?.discord === "string" ? body.discord.trim() : "";
 
     if (!email) {
       return NextResponse.json(
@@ -55,12 +60,48 @@ export async function POST(request: Request) {
       );
     }
 
+    if (evmAddress) {
+      const evmRegex = /^0x[a-fA-F0-9]{40}$/;
+      if (!evmRegex.test(evmAddress)) {
+        return NextResponse.json(
+          { error: "Please enter a valid EVM address" },
+          { status: 400 }
+        );
+      }
+    }
+
+    if (discord && discord.length > 80) {
+      return NextResponse.json(
+        { error: "Discord handle is too long" },
+        { status: 400 }
+      );
+    }
+
     if (!process.env.RESEND_API_KEY) {
       console.error("RESEND_API_KEY is not set");
       return NextResponse.json(
         { error: "Waitlist is temporarily unavailable" },
         { status: 503 }
       );
+    }
+
+    const redis = getRedisClient();
+    if (redis) {
+      const key = `waitlist:${email.toLowerCase()}`;
+      const payload = {
+        email,
+        evmAddress: evmAddress || null,
+        discord: discord || null,
+        createdAt: new Date().toISOString(),
+      };
+      try {
+        await redis.set(key, JSON.stringify(payload));
+      } catch (redisError) {
+        console.error("Redis waitlist write failed:", redisError);
+        // Don't fail the request just because persistence failed
+      }
+    } else {
+      console.warn("REDIS_URL is not set – skipping waitlist persistence");
     }
 
     const { data, error } = await resend.emails.send({
@@ -78,7 +119,10 @@ export async function POST(request: Request) {
       );
     }
 
-    return NextResponse.json({ ok: true, id: data?.id });
+    return NextResponse.json({
+      ok: true,
+      id: data?.id,
+    });
   } catch (err) {
     console.error("Waitlist API error:", err);
     return NextResponse.json(
@@ -87,3 +131,4 @@ export async function POST(request: Request) {
     );
   }
 }
+
