@@ -7,29 +7,21 @@ if (!uri) {
   console.warn("MONGODB_URI is not set");
 }
 
-type GlobalMongoCache = {
-  clientPromise?: Promise<MongoClient>;
-};
-
 const globalMongo = globalThis as typeof globalThis & {
-  _mongo?: GlobalMongoCache;
+  _mongoClientPromise?: Promise<MongoClient>;
 };
-
-if (!globalMongo._mongo) {
-  globalMongo._mongo = {};
-}
 
 function getClientPromise(): Promise<MongoClient> {
   if (!uri) {
     throw new Error("MONGODB_URI is not set");
   }
 
-  if (!globalMongo._mongo?.clientPromise) {
+  if (!globalMongo._mongoClientPromise) {
     const client = new MongoClient(uri);
-    globalMongo._mongo!.clientPromise = client.connect();
+    globalMongo._mongoClientPromise = client.connect();
   }
 
-  return globalMongo._mongo.clientPromise;
+  return globalMongo._mongoClientPromise;
 }
 
 export async function getMongoDb(): Promise<Db> {
