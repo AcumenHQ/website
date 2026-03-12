@@ -7,6 +7,7 @@ const navLinks = [
   { label: "Jobs", href: "#jobs" },
   { label: "Reputation", href: "#reputation" },
   { label: "Roadmap", href: "#roadmap" },
+  { label: "Waitlist", href: "#waitlist" },
 ];
 
 export function Header() {
@@ -45,10 +46,10 @@ export function Header() {
             Sign In
           </Link>
           <Link
-            href="/signup"
+            href="/#waitlist"
             className="bg-white text-black hover:bg-neutral-200 transition-all px-4 py-2 rounded-lg text-xs font-semibold tracking-wide flex items-center gap-2 group"
           >
-            Start Learning
+            Join Waitlist
             <iconify-icon
               icon="lucide:arrow-right"
               className="group-hover:translate-x-0.5 transition-transform"

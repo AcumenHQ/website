@@ -43,7 +43,7 @@ export function CTA() {
   }
 
   return (
-    <section className="max-w-[1400px] mx-auto px-6 pb-24 pt-12">
+    <section id="waitlist" className="max-w-[1400px] mx-auto px-6 pb-24 pt-12">
       <div className="glass-panel rounded-3xl p-12 text-center relative overflow-hidden group">
         {/* Background Beam Animation inside CTA */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-50 animate-beam" />
