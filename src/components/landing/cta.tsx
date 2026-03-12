@@ -126,13 +126,15 @@ export function CTA() {
                 You&apos;re on the waitlist. Come hang out with the community while we get things ready.
               </p>
               <div className="flex items-center justify-between gap-3">
-                <button
-                  type="button"
+                <a
+                  href="https://x.com/acumenhq?s=21"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center px-4 py-2 rounded-lg border border-neutral-700 text-sm text-neutral-300 hover:bg-neutral-800 transition-colors"
                   onClick={() => setShowDiscordInvite(false)}
-                  className="px-4 py-2 rounded-lg border border-neutral-700 text-sm text-neutral-300 hover:bg-neutral-800 transition-colors"
                 >
-                  Maybe later
-                </button>
+                  Join our X
+                </a>
                 <a
                   href="https://discord.gg/Sw5Xeu9J4R"
                   target="_blank"

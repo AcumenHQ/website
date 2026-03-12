@@ -27,6 +27,24 @@ function welcomeEmailHtml(): string {
     <p style="font-size: 16px; line-height: 1.6; color: #a1a1aa; margin: 0 0 24px;">
       Welcome aboard.
     </p>
+    <div style="margin: 0 0 24px;">
+      <a
+        href="https://x.com/acumenhq?s=21"
+        target="_blank"
+        rel="noreferrer"
+        style="display:inline-block; margin-right: 12px; margin-bottom: 8px; padding: 10px 14px; border-radius: 8px; text-decoration: none; background: #111827; border: 1px solid #27272a; color: #fff; font-size: 14px;"
+      >
+        Follow our X
+      </a>
+      <a
+        href="https://discord.gg/Sw5Xeu9J4R"
+        target="_blank"
+        rel="noreferrer"
+        style="display:inline-block; margin-bottom: 8px; padding: 10px 14px; border-radius: 8px; text-decoration: none; background: #5865F2; color: #fff; font-size: 14px;"
+      >
+        Join our Discord
+      </a>
+    </div>
     <p style="font-size: 14px; color: #71717a;">
       — The Acumen team
     </p>
