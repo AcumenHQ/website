@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import { getRedisClient } from "@/lib/redis";
+import { getMongoDb } from "@/lib/mongodb";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -85,23 +85,26 @@ export async function POST(request: Request) {
       );
     }
 
-    const redis = await getRedisClient();
-    if (redis) {
-      const key = `waitlist:${email.toLowerCase()}`;
-      const payload = {
-        email,
-        evmAddress: evmAddress || null,
-        discord: discord || null,
-        createdAt: new Date().toISOString(),
-      };
-      try {
-        await redis.set(key, JSON.stringify(payload));
-      } catch (redisError) {
-        console.error("Redis waitlist write failed:", redisError);
-        // Don't fail the request just because persistence failed
-      }
-    } else {
-      console.warn("REDIS_URL is not set – skipping waitlist persistence");
+    try {
+      const db = await getMongoDb();
+      await db.collection("waitlist").updateOne(
+        { email: email.toLowerCase() },
+        {
+          $set: {
+            email,
+            evmAddress: evmAddress || null,
+            discord: discord || null,
+            updatedAt: new Date(),
+          },
+          $setOnInsert: {
+            createdAt: new Date(),
+          },
+        },
+        { upsert: true }
+      );
+    } catch (mongoError) {
+      console.error("Mongo waitlist write failed:", mongoError);
+      // Don't fail the request just because persistence failed
     }
 
     const { data, error } = await resend.emails.send({
