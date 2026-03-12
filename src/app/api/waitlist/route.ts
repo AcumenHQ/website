@@ -85,7 +85,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const redis = getRedisClient();
+    const redis = await getRedisClient();
     if (redis) {
       const key = `waitlist:${email.toLowerCase()}`;
       const payload = {

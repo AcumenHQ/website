@@ -1,18 +1,39 @@
-import Redis from "ioredis";
+import { createClient, type RedisClientType } from "redis";
 
-let client: Redis | null = null;
+let client: RedisClientType | null = null;
+let connectPromise: Promise<RedisClientType | null> | null = null;
 
-export function getRedisClient() {
-  if (!process.env.REDIS_URL) {
+export async function getRedisClient(): Promise<RedisClientType | null> {
+  const url = process.env.REDIS_URL;
+  if (!url) {
     return null;
   }
 
   if (!client) {
-    client = new Redis(process.env.REDIS_URL, {
-      maxRetriesPerRequest: 2,
+    client = createClient({ url });
+    client.on("error", (err) => {
+      console.error("Redis client error:", err);
     });
   }
 
-  return client;
+  if (client.isOpen) {
+    return client;
+  }
+
+  if (!connectPromise) {
+    connectPromise = client
+      .connect()
+      .then(() => client)
+      .catch((err) => {
+        console.error("Redis connect failed:", err);
+        client = null;
+        return null;
+      })
+      .finally(() => {
+        connectPromise = null;
+      });
+  }
+
+  return connectPromise;
 }
 
